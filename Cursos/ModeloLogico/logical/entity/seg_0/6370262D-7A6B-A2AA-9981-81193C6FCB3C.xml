@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6370262D-7A6B-A2AA-9981-81193C6FCB3C" name="Horario">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:21:57 UTC</createdTime>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_horario" id="84080570-4796-2583-50A5-4AD253B963CF">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:51:04 UTC</createdTime>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dia" id="B7FF65EC-A054-5133-B782-C1DDEDC32343">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:51:19 UTC</createdTime>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="horario" id="D0FEC076-AD00-74B0-FDF1-A5AD2CB1DE63">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:51:28 UTC</createdTime>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D81FA303-03ED-0B16-2B3E-05B1669809EE" name="Horario PK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:51:18 UTC</createdTime>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>84080570-4796-2583-50A5-4AD253B963CF</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

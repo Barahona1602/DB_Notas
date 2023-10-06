@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="51395FDF-0F37-D485-03D9-2547726FA672" name="Curso">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>2F4673AD-61C9-ECE1-91A0-55C9F0886556</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_curso" id="67134282-0FA7-D205-674B-4220E25D9C7B">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>2952EAD7-F312-73F6-C563-CF56A66B4AD1</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="237BDB94-4B8B-69AC-39DA-B588A1BD7192">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>90D1CD24-5F22-B653-754F-20B1FAB777FD</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos_necesarios" id="6A6FA136-01A7-C677-1FD4-589F9C461B4A">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>51910E6F-8DEB-E4AA-318F-5C6491FCDB34</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos_otorgados" id="214B1290-B042-7037-D58B-2661D2C1A8EB">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>372D2AE8-FFF4-D227-8AE1-6720487FE455</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="obligatorio" id="8525F62F-02BB-A0D7-039F-8D92319E45B6">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>2701D0BA-A88E-1FC0-4882-2EDC51CD5BA7</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Carrera_id_carrera" id="D5173077-638E-06F1-CBC3-7C6E5E4024CB">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>DC996F9A-0686-636B-EFD4-A9BE1FA49BF7</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5B9C8EF3-C3A8-C523-3DD6-5BFFE8308D2F" referredColumn="B26896AB-651B-585F-083B-DC9414B7047C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F6D3FCF3-3E62-7887-2939-87C26CE67118" name="Curso_PK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>AE60DBB6-A5C4-B085-7AA8-F5840DFAB354</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67134282-0FA7-D205-674B-4220E25D9C7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0942F356-C47D-817C-0B46-076FFF0440DA" name="Curso_Carrera_FK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>F98B1233-85C9-9DA1-A6A4-D4FF16B3178A</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D5173077-638E-06F1-CBC3-7C6E5E4024CB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

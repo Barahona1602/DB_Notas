@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2C2D7C1C-399B-353A-0D84-6A9ACF834B0C" name="Seccion">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:21:33 UTC</createdTime>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_seccion" id="7E39153F-5245-F50A-7EDB-3591093BA080">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:56:46 UTC</createdTime>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="letra" id="D3EEFD19-8652-B1DA-91A9-CA9957D8C83D">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:57:09 UTC</createdTime>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8953969F-8190-A0D6-6D21-FDA885F931B9" name="Seccion PK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:57:04 UTC</createdTime>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7E39153F-5245-F50A-7EDB-3591093BA080</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

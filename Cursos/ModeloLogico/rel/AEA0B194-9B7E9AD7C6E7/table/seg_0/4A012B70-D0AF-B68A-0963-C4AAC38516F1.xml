@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4A012B70-D0AF-B68A-0963-C4AAC38516F1" name="Estudiante">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>4AA351E9-E48D-8A24-BAD5-CA74AA239547</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_estudiante" id="9068E268-CC61-F751-C77B-5A562D4727EC">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>4E34BCCF-458D-1CA1-B0A9-98CFB29F5F03</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="5C944342-FA01-6EFD-B54B-2C8F0F77CFEC">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>206662AF-97EE-0117-FBEC-47BB8A21308F</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apellido" id="2DE3DFFA-E7D6-1629-AD72-1456185AE759">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>FEBF18D0-03D7-857D-F78B-81213CB5A774</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nacimiento" id="B5E56DA9-FEA9-EE7F-893C-5C9FC58BE141">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>DD921FEC-F355-71C0-4BC3-783023613EE4</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="correo" id="E932FFFA-4B77-EA14-0E9E-D60BD7C3F3ED">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>5107FEF0-FB05-5EDD-3200-5774ECF2BB0A</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefono" id="B7BCD7CD-9772-238B-336D-04D593950EFB">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>E149B29A-6446-92DB-37B3-7E3C43D25D13</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccion" id="EC7BAEC1-A58E-438D-EE6B-A423110161B8">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>307708B4-35F8-3FE6-42F7-1942DD0FADD8</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dpi" id="495EE282-52B8-6F2D-F03F-C5FA790BDBF9">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>7438E2DE-EB64-92EF-CDDF-385EFD801AB8</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos" id="DB1CFF03-11CB-E840-607A-50D62F842CAC">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>28EE111A-6AA3-1D63-BBED-DC2BF18A0D7A</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Carrera_id_carrera" id="C0D79FF3-45DC-236F-DA04-EBDC77E10276">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>E1D8D161-0080-6E41-8A08-DE66EEBE61BF</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C155FA82-0755-3AAE-BD80-61E09FD3EE46" referredColumn="B26896AB-651B-585F-083B-DC9414B7047C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D99A14E3-B842-7876-D986-34B89222A5D6" name="Estudiante_PK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>AA800BBC-7809-D5A1-9D73-6C9F5D63259C</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9068E268-CC61-F751-C77B-5A562D4727EC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E4F3A8A4-A7AC-587F-F649-CD2D412C8624" name="Estudiante_Carrera_FK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>71646D46-D996-9EC8-D5A8-3F3ABA78D1F7</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C0D79FF3-45DC-236F-DA04-EBDC77E10276"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

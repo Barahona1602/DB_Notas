@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EC375B98-E49F-403F-9785-801C561C32F6" name="Acta">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>BA14DE84-74AC-6582-6A57-27F1A482F6D4</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_acta" id="97CD2C05-DA42-C459-219A-0C8F88450D68">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>CAE98B1B-DF5A-5B40-F2E3-86668DE258F1</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="97EF75E7-B9C3-8B34-D522-B4903515CE4F">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>D758F89D-9F37-71C2-6D89-C8E71EB13949</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CursoHabilitado_id_cursohabilitado" id="3A99C9A3-C255-5378-5CC0-92C0B4002099">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>1DB526D7-8D2B-D209-5346-16EA6244DFE2</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9517EA98-FCA9-7578-407B-B74DE486F83C" referredColumn="953641E1-5D3E-F2E4-4008-7D115F1FB9FD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7DA37F28-E27D-F6D1-C79F-35DF9C68D6D1" name="Acta_PK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>FDF1085B-F207-8121-2D02-05ACA4416080</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="97CD2C05-DA42-C459-219A-0C8F88450D68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9F23C8AB-2380-A690-EDA5-5C3431202F27" name="Acta_CursoHabilitado_FK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>49321312-3FA8-9E20-1897-991FFCEE16D3</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3A99C9A3-C255-5378-5CC0-92C0B4002099"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

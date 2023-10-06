@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7AD844CD-6E86-A1E9-AFCE-06D4393791BA" name="Seccion">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>2C2D7C1C-399B-353A-0D84-6A9ACF834B0C</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_seccion" id="79BD799B-E586-7BC1-C05E-8B473651F131">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>7E39153F-5245-F50A-7EDB-3591093BA080</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="letra" id="E42525F2-6734-2485-B9F1-77CA0965B343">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>D3EEFD19-8652-B1DA-91A9-CA9957D8C83D</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3069E09F-356C-EEC9-E0C2-791FDA83754C" name="Seccion_PK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>8953969F-8190-A0D6-6D21-FDA885F931B9</generatorID>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="79BD799B-E586-7BC1-C05E-8B473651F131"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
