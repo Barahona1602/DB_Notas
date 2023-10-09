@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3A9CC5B9-7EE7-1105-8A39-B0FF953C3291" name="Nota">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>237A6DCE-EFBD-CA59-6FDC-FA4117771ABD</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_nota" id="2626408E-4BCA-CB0E-8880-DF230F524A89">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>3B02E877-8D9C-10A8-B241-6E5407C1A478</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nota" id="C8A509DC-B235-43E0-F9C3-B6FD18D9F548">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>C140321B-9BD0-3CC6-2E9C-660885FE2F99</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Asignacion_id_asignacion" id="E6CB3BDE-8882-937A-69A6-56672B67813B">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>B413F31A-DE22-1D75-859F-0E818BD4D36A</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A3254A9D-8C0E-C472-97FA-9E21F7A8A3B7" referredColumn="89FDAEB9-623E-19C7-9899-60C982BD3A6C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A79FD07A-F0BE-1416-0441-F93D98CB0D9B" name="Nota_PK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>45D05A64-4EC0-B74A-7E7A-80CFF59648E1</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2626408E-4BCA-CB0E-8880-DF230F524A89"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9AAB3142-21E3-BA4B-6511-43B53DDDCB9B" name="Nota_Asignacion_FK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>22A3CE0D-01CB-585B-C89E-4D387D96898C</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E6CB3BDE-8882-937A-69A6-56672B67813B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

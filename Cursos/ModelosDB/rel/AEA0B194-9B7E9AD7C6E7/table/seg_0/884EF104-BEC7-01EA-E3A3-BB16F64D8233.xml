@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="884EF104-BEC7-01EA-E3A3-BB16F64D8233" name="Bitacora">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:35:46 UTC</createdTime>
+<generatorID>CD44587C-4D09-92B8-CEC0-6497E47F6396</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_bitacora" id="E50669AE-60F4-00AC-40D3-44802405AE30">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:35:46 UTC</createdTime>
+<generatorID>BE314AB6-2381-8FF9-34AE-0A9C5ABB2A27</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="B8F0EAD4-2157-2BA1-44FB-0CA8C08A87BA">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:35:46 UTC</createdTime>
+<generatorID>8E8CC91C-8045-BE2B-0DCB-C1B7284D8111</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="AF6CA43E-ACCF-D2BF-92FD-9C4B099B5241">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:35:46 UTC</createdTime>
+<generatorID>ED340C3B-2491-0EC4-4BB0-0E4BD9E8A98A</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="D56BB60F-64F2-BD52-848C-D501BDA2645F">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:35:46 UTC</createdTime>
+<generatorID>1ACBEA75-A8E0-8535-2C24-116E62EF4D34</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D6AFFB21-2A74-76A7-0910-B5D54C538C8B" name="Bitacora_PK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:35:46 UTC</createdTime>
+<generatorID>AE18AF62-E61D-633D-6BA7-C6F947C0CA1A</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E50669AE-60F4-00AC-40D3-44802405AE30"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

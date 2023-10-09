@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A3254A9D-8C0E-C472-97FA-9E21F7A8A3B7" containerWithKeyObject="3A9CC5B9-7EE7-1105-8A39-B0FF953C3291" localFKIndex="9AAB3142-21E3-BA4B-6511-43B53DDDCB9B" name="Nota_Asignacion_FK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:03:29 UTC</createdTime>
+<generatorID>22A3CE0D-01CB-585B-C89E-4D387D96898C</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<referredTableLongName>Asignacion</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E8EAA38F-D77D-34B7-8CE9-8DC37C7E9ADD</referredTableID>
+<keyObject>8292F441-C310-A76B-D922-35718C9ECD0C</keyObject>
+<referredKeyID>8292F441-C310-A76B-D922-35718C9ECD0C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_asignacion</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

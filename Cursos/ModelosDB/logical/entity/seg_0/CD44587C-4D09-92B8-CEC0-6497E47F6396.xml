@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CD44587C-4D09-92B8-CEC0-6497E47F6396" name="Bitacora">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:31:07 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_bitacora" id="BE314AB6-2381-8FF9-34AE-0A9C5ABB2A27">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:31:15 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha" id="8E8CC91C-8045-BE2B-0DCB-C1B7284D8111">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:33:08 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descripcion" id="ED340C3B-2491-0EC4-4BB0-0E4BD9E8A98A">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:31:58 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipo" id="1ACBEA75-A8E0-8535-2C24-116E62EF4D34">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:33:41 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="AE18AF62-E61D-633D-6BA7-C6F947C0CA1A" name="Bitacora PK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:31:53 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BE314AB6-2381-8FF9-34AE-0A9C5ABB2A27</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

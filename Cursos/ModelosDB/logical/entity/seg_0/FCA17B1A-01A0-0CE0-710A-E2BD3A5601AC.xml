@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FCA17B1A-01A0-0CE0-710A-E2BD3A5601AC" name="CursoHabilitado">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:20:03 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_cursohabilitado" id="4284D159-2A5A-94B8-0C91-6A0E6C1370C7">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:46:47 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cupomaximo" id="CA572ABE-0D82-AA82-2593-29145AD76209">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:47:09 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_seccion" id="F6CF1F47-5771-B36A-7E93-0EE2D53849B3">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:01:17 UTC</createdTime>
+<generatorID>DA1A5562-842E-04DF-292B-6C0D2BD7B776</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<referedAttribute>7E39153F-5245-F50A-7EDB-3591093BA080</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_estudiante" id="C3B3BB63-CF6C-CA13-D13B-24407F13055A">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:01:57 UTC</createdTime>
+<generatorID>F857BC93-D45E-ABB5-EC80-1720BDE02DB9</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<referedAttribute>6AB10379-2896-F779-13C3-DBC59D5210AC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_ciclo" id="3D244B84-9394-6742-04BE-681953511A89">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:02:01 UTC</createdTime>
+<generatorID>D10465D5-948D-4295-5997-DE256745F49F</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<referedAttribute>081A7E9B-5CDD-28C0-5104-3502BAD86DAC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_curso" id="A1646B2D-B887-0CCE-C238-E2F3ADB9DBDD">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-06 00:02:12 UTC</createdTime>
+<generatorID>61FCC5B9-DDA0-B989-E82F-384C67C3354B</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<referedAttribute>2952EAD7-F312-73F6-C563-CF56A66B4AD1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="numero_asignado" id="3546D967-311E-37C4-9C12-6FC7B4584705">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:34:20 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha" id="F2A8A685-D1E0-9223-3AC0-B83299569213">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-09 22:34:49 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="0D022653-6A2B-E504-2468-0CA550758993" name="CursoHabilitado PK">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:47:06 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>4284D159-2A5A-94B8-0C91-6A0E6C1370C7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

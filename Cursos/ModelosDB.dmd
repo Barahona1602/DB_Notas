@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="ModelosDB" id="DAE8EB5A-BDBC-30C7-09C7-D59ED7F1C4A6" version="3.5">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 00:47:20 UTC</createdTime>
+<ownerDesignName>ModeloLogico</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>DAE8EB5A-BDBC-30C7-09C7-D59ED7F1C4A6</designId>
+</OSDM_Design>

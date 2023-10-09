@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A420FA54-02E2-5554-CB9F-D1D716EA77C1" name="HorarioEnCurso">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:22:05 UTC</createdTime>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_cursohabilitado" id="F7146D6E-5331-B3C3-656D-3810561F2D79">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:52:19 UTC</createdTime>
+<generatorID>CFE3FBBD-429E-779A-21E9-A9CD13E16C1E</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<referedAttribute>4284D159-2A5A-94B8-0C91-6A0E6C1370C7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_horario" id="3BFBCFE6-D3E3-0680-4E9B-70AB01779E3E">
+<createdBy>pbara</createdBy>
+<createdTime>2023-10-05 23:52:30 UTC</createdTime>
+<generatorID>41CBEA80-DE8E-6810-DD0E-67147A078FA8</generatorID>
+<ownerDesignName>ModelosDB</ownerDesignName>
+<engineerTo>
+<item key="AEA0B194-E2BF-A508-3774-9B7E9AD7C6E7" value="true"/>
+</engineerTo>
+<referedAttribute>84080570-4796-2583-50A5-4AD253B963CF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>
