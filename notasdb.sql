@@ -301,6 +301,42 @@ END;
 DELIMITER ;
 
 
+DELIMITER //
+CREATE PROCEDURE agregarHorario(
+    IN nuevo_id_cursohabilitado INT,
+    IN nuevo_dia INT,
+    IN nuevo_horario VARCHAR(20)
+)
+BEGIN
+    DECLARE nuevo_id_horario INT;
+    IF EXISTS (SELECT 1 FROM CursoHabilitado WHERE id_cursohabilitado = nuevo_id_cursohabilitado) THEN
+        IF NOT EXISTS (SELECT 1 FROM Horario WHERE dia = nuevo_dia AND horario = nuevo_horario) THEN
+            INSERT INTO Horario (
+            dia, 
+            horario
+            ) 
+            VALUES (
+            nuevo_dia, 
+            nuevo_horario
+            );
+            SET nuevo_id_horario = LAST_INSERT_ID();
+        ELSE
+            SELECT id_horario INTO nuevo_id_horario FROM Horario WHERE dia = nuevo_dia AND horario = nuevo_horario;
+        END IF;
+        INSERT INTO HorarioEnCurso(
+        id_cursohabilitado, 
+        id_horario
+        ) 
+        VALUES(
+        nuevo_id_cursohabilitado, 
+        nuevo_id_horario
+        );
+    END IF;
+END;
+//
+DELIMITER ;
+
+
 -- --------------------------------------------------------
 -- LLAMADAS
 -- --------------------------------------------------------
@@ -317,7 +353,9 @@ CALL registrarDocente(200200001,'Javier','Guzmán','1990-01-31','edu@gmail.com',
 CALL habilitarCurso(101, '1S', 200200001, 25, 'A');
 CALL habilitarCurso(102, '1S', 200200001, 25, 'B');
 CALL crearCarrera('Electrica');
-
+CALL agregarHorario(1, 2, '9:00-10:40');
+CALL agregarHorario(2, 1, '9:00-10:40');
+CALL agregarHorario(2, 2, '9:00-10:40');
 
 -- --------------------------------------------------------
 -- BORRAR TABLAS PRUEBA
@@ -342,6 +380,7 @@ DROP PROCEDURE crearCurso;
 DROP PROCEDURE registrarEstudiante;
 DROP PROCEDURE registrarDocente;
 DROP PROCEDURE habilitarCurso;
+DROP PROCEDURE agregarHorario;
 */
 
 
