@@ -831,6 +831,9 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE consultarActas(IN codigo_curso INT)
 BEGIN
+	IF NOT EsEnteroPositivo(codigo_curso) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No se ha ingresado el código del curso correctamente';
+    END IF;
     SELECT 
         c.id_curso AS CodigoCurso,
         s.letra AS Seccion,
@@ -870,8 +873,19 @@ BEGIN
     DECLARE total_estudiantes INT;
     DECLARE desasignados INT;
     DECLARE porcentaje_desasignacion DECIMAL(5, 2);
-    
-    -- Obtener la cantidad total de estudiantes que llevaron el curso
+    IF NOT ValidarValoresPermitidos(ciclo_nombre) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Nombre de ciclo no válido';
+    END IF;
+    SET seccion_letra = UPPER(seccion_letra);
+    IF NOT EsLetraAZ(seccion_letra) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Se ha ingresado un caracter diferente a una letra';
+    END IF;
+    IF NOT EsEnteroPositivo(ciclo_anio) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No se ha ingresado el año correctamente';
+    END IF;
+    IF NOT EsEnteroPositivo(codigo_curso) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No se ha ingresado el código del curso correctamente';
+    END IF;
     SELECT COUNT(DISTINCT a.id_estudiante)
     INTO total_estudiantes
     FROM Curso c
@@ -883,8 +897,6 @@ BEGIN
     AND ci.nombre = ciclo_nombre
     AND YEAR(ch.fecha) = ciclo_anio
     AND s.letra = seccion_letra;
-    
-    -- Obtener la cantidad de estudiantes que se desasignaron
     SELECT COUNT(DISTINCT a.id_estudiante)
     INTO desasignados
     FROM Curso c
@@ -897,15 +909,11 @@ BEGIN
     AND YEAR(ch.fecha) = ciclo_anio
     AND s.letra = seccion_letra
     AND a.asignado = 0;
-
-    -- Calcular el porcentaje de desasignación
     IF total_estudiantes > 0 THEN
         SET porcentaje_desasignacion = (desasignados / total_estudiantes) * 100;
     ELSE
         SET porcentaje_desasignacion = 0;
     END IF;
-
-    -- Devolver los resultados
     SELECT 
         codigo_curso AS CodigoCurso,
         seccion_letra AS Seccion,
