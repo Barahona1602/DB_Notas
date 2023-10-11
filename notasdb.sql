@@ -637,8 +637,8 @@ BEGIN
 			);
 			IF nuevo_nota >= 61 THEN
 				UPDATE Estudiante SET creditos = import_creditos WHERE id_estudiante = nuevo_id_estudiante;
-                UPDATE CursoHabilitado SET notas = notas + 1 WHERE id_cursohabilitado = import_cursohabilitado;
 			END IF;
+            UPDATE CursoHabilitado SET notas = notas + 1 WHERE id_cursohabilitado = import_cursohabilitado;
 		ELSE
 			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Ya se ha ingresado la nota a este estudiante';
 		END IF;
@@ -780,6 +780,150 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE consultarAprobacion(
+    IN codigo_curso INT,
+    IN ciclo_nombre VARCHAR(2),
+    IN ciclo_anio INT,
+    IN seccion_letra CHAR(1)
+)
+BEGIN
+    IF NOT ValidarValoresPermitidos(ciclo_nombre) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Nombre de ciclo no válido';
+    END IF;
+    SET seccion_letra = UPPER(seccion_letra);
+    IF NOT EsLetraAZ(seccion_letra) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Se ha ingresado un caracter diferente a una letra';
+    END IF;
+    IF NOT EsEnteroPositivo(ciclo_anio) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No se ha ingresado el año correctamente';
+    END IF;
+    IF NOT EsEnteroPositivo(codigo_curso) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No se ha ingresado el código del curso correctamente';
+    END IF;
+    SELECT 
+        c.id_curso AS CodigoCurso,
+        e.id_estudiante AS Carnet,
+        CONCAT(e.nombre, ' ', e.apellido) AS NombreCompleto,
+        CASE
+            WHEN COUNT(n.id_nota) > 0 AND MIN(n.nota) >= 61 THEN 'APROBADO'
+            ELSE 'REPROBADO'
+        END AS Estado
+    FROM Curso c
+    CROSS JOIN Estudiante e
+    LEFT JOIN Asignacion a ON e.id_estudiante = a.id_estudiante
+    LEFT JOIN Nota n ON a.id_asignacion = n.id_asignacion
+    INNER JOIN CursoHabilitado ch ON c.id_curso = ch.id_curso
+    INNER JOIN Seccion s ON ch.id_seccion = s.id_seccion
+    INNER JOIN Ciclo ci ON ch.id_ciclo = ci.id_ciclo
+    WHERE c.id_curso = codigo_curso
+    AND ci.nombre = ciclo_nombre
+    AND YEAR(ch.fecha) = ciclo_anio
+    AND s.letra = seccion_letra
+    GROUP BY c.id_curso, e.id_estudiante, NombreCompleto;
+END;
+//
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE consultarActas(IN codigo_curso INT)
+BEGIN
+    SELECT 
+        c.id_curso AS CodigoCurso,
+        s.letra AS Seccion,
+        CASE
+            WHEN ci.nombre = '1S' THEN 'PRIMER SEMESTRE'
+            WHEN ci.nombre = '2S' THEN 'SEGUNDO SEMESTRE'
+            WHEN ci.nombre = 'VJ' THEN 'VACACIONES DE JUNIO'
+            WHEN ci.nombre = 'VD' THEN 'VACACIONES DE DICIEMBRE'
+            ELSE ci.nombre
+        END AS Ciclo,
+        YEAR(ch.fecha) AS Anio,
+        COUNT(n.id_nota) AS CantidadEstudiantes,
+        act.fecha AS FechaGenerado
+    FROM Curso c
+    INNER JOIN CursoHabilitado ch ON c.id_curso = ch.id_curso
+    INNER JOIN Seccion s ON ch.id_seccion = s.id_seccion
+    INNER JOIN Ciclo ci ON ch.id_ciclo = ci.id_ciclo
+    LEFT JOIN Asignacion a ON ch.id_cursohabilitado = a.id_cursohabilitado
+    LEFT JOIN Nota n ON a.id_asignacion = n.id_asignacion
+    LEFT JOIN Acta act ON a.id_cursohabilitado = act.id_cursohabilitado
+    WHERE c.id_curso = codigo_curso
+    GROUP BY CodigoCurso, Seccion, Ciclo, Anio, FechaGenerado
+    ORDER BY FechaGenerado;
+END;
+//
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE consultarDesasignacion(
+    IN codigo_curso INT,
+    IN ciclo_nombre VARCHAR(2),
+    IN ciclo_anio INT,
+    IN seccion_letra CHAR(1)
+)
+BEGIN
+    DECLARE total_estudiantes INT;
+    DECLARE desasignados INT;
+    DECLARE porcentaje_desasignacion DECIMAL(5, 2);
+    
+    -- Obtener la cantidad total de estudiantes que llevaron el curso
+    SELECT COUNT(DISTINCT a.id_estudiante)
+    INTO total_estudiantes
+    FROM Curso c
+    INNER JOIN CursoHabilitado ch ON c.id_curso = ch.id_curso
+    INNER JOIN Seccion s ON ch.id_seccion = s.id_seccion
+    INNER JOIN Ciclo ci ON ch.id_ciclo = ci.id_ciclo
+    INNER JOIN Asignacion a ON ch.id_cursohabilitado = a.id_cursohabilitado
+    WHERE c.id_curso = codigo_curso
+    AND ci.nombre = ciclo_nombre
+    AND YEAR(ch.fecha) = ciclo_anio
+    AND s.letra = seccion_letra;
+    
+    -- Obtener la cantidad de estudiantes que se desasignaron
+    SELECT COUNT(DISTINCT a.id_estudiante)
+    INTO desasignados
+    FROM Curso c
+    INNER JOIN CursoHabilitado ch ON c.id_curso = ch.id_curso
+    INNER JOIN Seccion s ON ch.id_seccion = s.id_seccion
+    INNER JOIN Ciclo ci ON ch.id_ciclo = ci.id_ciclo
+    INNER JOIN Asignacion a ON ch.id_cursohabilitado = a.id_cursohabilitado
+    WHERE c.id_curso = codigo_curso
+    AND ci.nombre = ciclo_nombre
+    AND YEAR(ch.fecha) = ciclo_anio
+    AND s.letra = seccion_letra
+    AND a.asignado = 0;
+
+    -- Calcular el porcentaje de desasignación
+    IF total_estudiantes > 0 THEN
+        SET porcentaje_desasignacion = (desasignados / total_estudiantes) * 100;
+    ELSE
+        SET porcentaje_desasignacion = 0;
+    END IF;
+
+    -- Devolver los resultados
+    SELECT 
+        codigo_curso AS CodigoCurso,
+        seccion_letra AS Seccion,
+        CASE
+            WHEN ciclo_nombre = '1S' THEN 'PRIMER SEMESTRE'
+            WHEN ciclo_nombre = '2S' THEN 'SEGUNDO SEMESTRE'
+            WHEN ciclo_nombre = 'VJ' THEN 'VACACIONES DE JUNIO'
+            WHEN ciclo_nombre = 'VD' THEN 'VACACIONES DE DICIEMBRE'
+            ELSE ciclo_nombre
+        END AS Ciclo,
+        ciclo_anio AS Anio,
+        total_estudiantes AS TotalEstudiantes,
+        desasignados AS Desasignados,
+        porcentaje_desasignacion AS PorcentajeDesasignacion;
+END;
+//
+DELIMITER ;
+
 
 
 -- --------------------------------------------------------
@@ -928,24 +1072,41 @@ CALL crearCurso(101, 'Matemática Básica 3', 0, 7, 0,1);
 CALL crearCurso(102, 'Matemática Básica 2', 0, 7, 0,1);
 CALL registrarEstudiante(202300002,'María','Gómez','1998-08-22','maria@example.com',25067895,'456 Calle Secundaria',9876543210987,2);
 CALL registrarEstudiante(202300001,'Jose','Carrillo','2002-10-16','jose@gmail.com',45897463,'Ruta a Escuintla km 12',2997536980101,1);
+CALL registrarEstudiante(202300003,'Ma','Gz','1998-08-22','maria@example.com',25067895,'456 Calle Secundaria',9876543210987,2);
+CALL registrarEstudiante(202300004,'Jo','Cllo','2002-10-16','jose@gmail.com',45897463,'Ruta a Escuintla km 12',2997536980101,1);
 CALL registrarDocente(200200001,'Javier','Guzmán','1990-01-31','edu@gmail.com',78693541,'Antigua Guatemala',2997859611101);
 CALL habilitarCurso(101, '1S', 200200001, 25, 'A');
 CALL habilitarCurso(102, '1S', 200200001, 25, 'B');
+CALL habilitarCurso(102, '1S', 200200001, 25, 'A');
 CALL crearCarrera('Electrica');
 CALL agregarHorario(1, 2, '9:00-10:40');
 CALL agregarHorario(2, 1, '9:00-10:40');
 CALL agregarHorario(2, 2, '9:00-10:40');
+CALL agregarHorario(3, 2, '9:00-10:40');
 CALL asignarCurso(102, '1S','B',202300002);
 CALL asignarCurso(102, '1S','B',202300001);
+CALL asignarCurso(102, '1S','A',202300004);
+CALL asignarCurso(102, '1S','A',202300003);
+CALL asignarCurso(101, '1S','A',202300002);
+CALL asignarCurso(101, '1S','A',202300004);
+CALL asignarCurso(101, '1S','A',202300003);
 CALL asignarCurso(101, '1S','a',202300001);
 CALL desasignarCurso(101, '1S','a',202300001);
 CALL ingresarNota(102, '1S','B',202300002, 65);
 CALL ingresarNota(102, '1S','B',202300001, 65);
+CALL ingresarNota(102, '1S','A',202300003, 65);
+CALL ingresarNota(102, '1S','A',202300004, 60);
 CALL generarActa(102, '1S','B');
+CALL generarActa(102, '1S','A');
 CALL consultaPensum(4);
 CALL consultaEstudiante(202300001);
 CALL consultaDocente(200200001);
 CALL consultarAsignados(102, '1S', 2023, 'B');
+CALL consultarAprobacion(102, '1S', 2023, 'B');
+CALL consultarActas(102);
+CALL consultarDesasignacion(102, '1S', 2023, 'B');
+CALL consultarDesasignacion(101, '1S', 2023, 'A');
+
 
 -- --------------------------------------------------------
 -- BORRAR TABLAS PRUEBA
@@ -980,6 +1141,9 @@ DROP PROCEDURE consultarAsignados;
 DROP PROCEDURE consultaPensum;
 DROP PROCEDURE consultaDocente;
 DROP PROCEDURE consultaEstudiante;
+DROP PROCEDURE consultarAprobacion;
+DROP PROCEDURE consultarActas;
+DROP PROCEDURE consultarDesasignacion;
 DROP FUNCTION EsCorreoValido;
 DROP FUNCTION EsLetraAZ;
 DROP FUNCTION EsSoloLetras;
