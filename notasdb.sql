@@ -146,7 +146,6 @@ DETERMINISTIC
 BEGIN
     DECLARE esLetra BOOLEAN;
     SET esLetra = FALSE;
-
     IF (ASCII(caracter) BETWEEN ASCII('A') AND ASCII('Z') AND caracter NOT LIKE 'Ñ') THEN
         SET esLetra = TRUE;
     END IF;
@@ -164,14 +163,10 @@ DETERMINISTIC
 BEGIN
     DECLARE esValido BOOLEAN;
     SET esValido = FALSE;
-
-    -- Expresión regular para validar un correo electrónico
     SET @correo_regex = '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$';
-
     IF correo REGEXP @correo_regex THEN
         SET esValido = TRUE;
     END IF;
-
     RETURN esValido;
 END;
 //
@@ -187,15 +182,13 @@ BEGIN
     DECLARE len INT;
     SET i = 1;
     SET len = LENGTH(frase);
-
     WHILE i <= len DO
         IF NOT (SUBSTRING(frase, i, 1) REGEXP '^[A-Za-zÁÉÍÓÚÜáéíóíü ]$') THEN
-            RETURN FALSE; -- La frase contiene caracteres que no son letras ni espacios
+            RETURN FALSE; 
         END IF;
         SET i = i + 1;
     END WHILE;
-
-    RETURN TRUE; -- La frase contiene solo letras, espacios y letras con tildes
+    RETURN TRUE;
 END;
 //
 DELIMITER ;
@@ -207,16 +200,10 @@ RETURNS VARCHAR(8)
 DETERMINISTIC
 BEGIN
     DECLARE telefono_validado VARCHAR(20);
-    
-    -- Elimina cualquier carácter que no sea un dígito
     SET telefono_validado = REGEXP_REPLACE(telefono, '[^0-9]', '');
-    
-    -- Verifica si el teléfono tiene más de 8 dígitos
     IF LENGTH(telefono_validado) > 8 THEN
-        -- Si tiene más de 8 dígitos, quita los dígitos excedentes a la izquierda
         SET telefono_validado = RIGHT(telefono_validado, 8);
     END IF;
-    
     RETURN telefono_validado;
 END;
 //
@@ -244,11 +231,9 @@ RETURNS BOOLEAN
 DETERMINISTIC
 BEGIN
     DECLARE es_valido BOOLEAN DEFAULT FALSE;
-
     IF valor >= 0 AND valor = FLOOR(valor) THEN
         SET es_valido = TRUE;
     END IF;
-
     RETURN es_valido;
 END;
 //
@@ -261,11 +246,9 @@ RETURNS BOOLEAN
 DETERMINISTIC
 BEGIN
     DECLARE es_valido BOOLEAN DEFAULT FALSE;
-
     IF numero >= 1 AND numero <= 7 THEN
         SET es_valido = TRUE;
     END IF;
-
     RETURN es_valido;
 END;
 //
@@ -541,7 +524,7 @@ BEGIN
     SELECT id_seccion INTO import_id_seccion FROM Seccion WHERE letra = nuevo_seccion;
     SELECT id_ciclo INTO import_id_ciclo FROM Ciclo WHERE nombre = nuevo_ciclo;
     SELECT cupomaximo, asignacion, id_cursohabilitado INTO import_cupomaximo, import_asignacion, import_cursohabilitado FROM CursoHabilitado WHERE id_curso = nuevo_id_curso AND id_seccion = import_id_seccion AND id_ciclo = import_id_ciclo;
-    IF NOT EXISTS (SELECT 1 FROM Asignacion WHERE id_estudiante = nuevo_id_estudiante AND id_cursohabilitado = import_cursohabilitado) THEN
+    IF NOT EXISTS (SELECT 1 FROM Asignacion WHERE id_estudiante = nuevo_id_estudiante AND id_cursohabilitado = import_cursohabilitado AND asignado = 1) THEN
         IF import_id_carrera_curso = import_id_carrera_estudiante OR import_id_carrera_curso = 0 THEN
             IF (SELECT creditos_necesarios FROM Curso WHERE id_curso = nuevo_id_curso) <= import_creditos THEN
                 IF EXISTS (SELECT 1 FROM CursoHabilitado WHERE id_curso = nuevo_id_curso AND id_seccion = import_id_seccion AND id_ciclo = import_id_ciclo) THEN
@@ -610,6 +593,57 @@ END;
 DELIMITER ;
 
 
+DELIMITER //
+CREATE PROCEDURE ingresarNota(
+    IN nuevo_id_curso INT,
+    IN nuevo_ciclo VARCHAR(2),
+    IN nuevo_seccion CHAR(1),
+    IN nuevo_id_estudiante BIGINT,
+    IN nuevo_nota INT
+)
+BEGIN
+    DECLARE import_id_seccion INT;
+    DECLARE import_asignacion INT;
+    DECLARE import_cursohabilitado INT;
+    DECLARE import_id_ciclo INT;
+    DECLARE import_creditos INT;
+    IF NOT ValidarValoresPermitidos(nuevo_ciclo) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Nombre de ciclo no válido';
+    END IF;
+	IF NOT EsLetraAZ(nuevo_seccion) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Se ha ingresado un caracter diferente a una letra';
+    END IF;
+    IF NOT EsEnteroPositivo(nuevo_nota) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El numero que se ha ingresado es incorrecto';
+    END IF;
+    SET nuevo_nota = ROUND(nuevo_nota,0);
+    SELECT creditos_otorgados INTO import_creditos FROM Curso WHERE id_curso = nuevo_id_curso;
+    SELECT id_seccion INTO import_id_seccion FROM Seccion WHERE letra = nuevo_seccion;
+    SELECT id_ciclo INTO import_id_ciclo FROM Ciclo WHERE nombre = nuevo_ciclo;
+    SELECT id_cursohabilitado INTO import_cursohabilitado FROM CursoHabilitado WHERE id_curso = nuevo_id_curso AND id_seccion = import_id_seccion AND id_ciclo = import_id_ciclo;
+    SELECT id_asignacion INTO import_asignacion FROM Asignacion WHERE id_estudiante = nuevo_id_estudiante AND id_cursohabilitado = import_cursohabilitado AND asignado=1;
+    IF EXISTS (SELECT 1 FROM Asignacion WHERE id_estudiante = nuevo_id_estudiante AND id_cursohabilitado = import_cursohabilitado AND asignado=1) THEN
+		IF NOT EXISTS (SELECT 1 FROM Nota WHERE id_asignacion = import_asignacion) THEN
+			INSERT INTO Nota(
+			nota,
+			id_asignacion
+			) 
+			VALUES (
+			nuevo_nota,
+			import_asignacion
+			);
+			IF nuevo_nota >= 61 THEN
+				UPDATE Estudiante SET creditos = import_creditos WHERE id_estudiante = nuevo_id_estudiante;
+			END IF;
+		ELSE
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Ya se ha ingresado la nota a este estudiante';
+		END IF;
+    ELSE
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El estudiante no tiene asignado el curso F';
+    END IF;
+END;
+//
+DELIMITER ;
 -- --------------------------------------------------------
 -- Triggers
 -- --------------------------------------------------------
@@ -765,9 +799,10 @@ CALL crearCarrera('Electrica');
 CALL agregarHorario(1, 2, '9:00-10:40');
 CALL agregarHorario(2, 1, '9:00-10:40');
 CALL agregarHorario(2, 2, '9:00-10:40');
+CALL asignarCurso(102, '1S','B',202300002);
 CALL asignarCurso(102, '1S','B',202300001);
 CALL desasignarCurso(102, '1S','B',202300001);
-
+CALL ingresarNota(102, '1S','B',202300002, 65);
 
 -- --------------------------------------------------------
 -- BORRAR TABLAS PRUEBA
@@ -796,6 +831,7 @@ DROP PROCEDURE habilitarCurso;
 DROP PROCEDURE agregarHorario;
 DROP PROCEDURE asignarCurso;
 DROP PROCEDURE desasignarCurso;
+DROP PROCEDURE ingresarNota;
 DROP FUNCTION EsCorreoValido;
 DROP FUNCTION EsLetraAZ;
 DROP FUNCTION EsSoloLetras;
