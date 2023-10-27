@@ -1,9 +1,4 @@
-# DB_Notas
-Esta es una base de Datos en la cual podemos hacer manejo de la información de la Facultad de Ingeniería, teniendo el registro de los estudiantes, cursos, docentes, notas y actas.
-Tenemos funciones, procedimientos almacenados y triggers
-## Ejemplo
-Este es un ejemplo de los datos que se pueden ingresar a la DB:
-```sh
+use notasdb;
 CALL crearCarrera('Ingenieria Civil');       -- 1  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
 CALL crearCarrera('Ingenieria Industrial');  -- 2  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
 CALL crearCarrera('Ingenieria Sistemas');    -- 3  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
@@ -325,7 +320,7 @@ CALL generarActa(
 );
 
 
-/* GETTERS */
+/* GETTERS 
 CALL consultarPensum(1);
 CALL consultarPensum(2);
 CALL consultarPensum(3);
@@ -406,4 +401,4 @@ CALL consultarDesasignacion(
     2023,
     'A'
 );
-```
+*/
